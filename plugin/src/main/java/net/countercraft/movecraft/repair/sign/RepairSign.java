@@ -164,7 +164,7 @@ public class RepairSign implements Listener {
                 ArrayList<InventoryHolder> chests = new ArrayList<>();
                 for (MovecraftLocation loc : pCraft.getHitBox()) {
                     Block b = pCraft.getW().getBlockAt(loc.getX(), loc.getY(), loc.getZ());
-                    if ((b.getType() == Material.CHEST) || (b.getType() == Material.TRAPPED_CHEST)) {
+                    if (b.getState() instanceof InventoryHolder /*(b.getType() == Material.CHEST) || (b.getType() == Material.TRAPPED_CHEST)*/) {
                         InventoryHolder inventoryHolder = (InventoryHolder) b.getState();
                         if (inventoryHolder.getInventory().contains(type.getLeft()) && remainingQty > 0) {
                             HashMap<Integer, ? extends ItemStack> foundItems = inventoryHolder.getInventory().all(type.getLeft());
